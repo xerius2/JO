@@ -1,0 +1,27 @@
+{
+  "name": "jo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xerius2/JO.git"
+  },
+  "author": "DA SILVA Brandon - MAZINGUE Corentin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xerius2/JO/issues"
+  },
+  "homepage": "https://github.com/xerius2/JO#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.10.12",
+    "morgan": "^1.10.0",
+    "uuid": "^8.3.1"
+  }
+}
