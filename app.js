@@ -33,5 +33,5 @@ app.get('/', (req, res) => {
 
 // on écoute sur notre port.
 app.listen(port, () => {
-    console.log(`TweetJS listening at http://localhost:${port}`)
+    console.log(`Listening at http://localhost:${port}`)
 });

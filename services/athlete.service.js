@@ -21,7 +21,7 @@ class AthleteService {
             await newAthlete.save();
             res.status(201).json(newAthlete);
         } catch (error) {
-            console.log('Error durng athlete creation', err)
+            console.log('Error during athlete creation', err)
             res.status(500).end();
         }
     }
