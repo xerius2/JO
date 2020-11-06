@@ -1,0 +1,33 @@
+<div>
+    <h3 class="center header">Liste des athlètes olympiques</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom de l'athlète</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each athlete}}
+            <tr>
+                <td>
+                    <p>{{politness}} {{firstName}} {{lastName}} (country)</p>
+                </td>
+                <td>
+                    <button>Modifier</button>
+                    <button>Supprimer</button>
+                </td>
+            </tr>
+            {{/each}}
+            {{#if authorized}}
+            <tr>
+                <td>
+                    <input placeholder="Ajouter un athlète" />
+                </td>
+                <td>
+                    <button>Créer</button>
+                </td>
+            </tr>
+            {{/if}}
+        </tbody>
+    </table>
+</div>
