@@ -7,7 +7,6 @@ const sportController = new SportController();
 const router = express.Router();
 
 router.get('/sports', async (req, res) => {
-	res.render('index_sports', { sports });
 	sportController.list(req, res);
 });
 

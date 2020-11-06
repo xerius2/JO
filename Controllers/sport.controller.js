@@ -1,4 +1,3 @@
-const sport = require('../models/sport');
 const SportService = require('../services/sport.service');
 
 class SportController {
@@ -10,8 +9,7 @@ class SportController {
 
 	async list(req, res) {
 		const sports = await this.sportService.list(req, res);
-		console.log('aze');
-        res.render('index_sports', { sports });
+        res.render('indexSport', { sports });
 	}
 
 	async create(req, res) {
