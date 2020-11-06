@@ -38,7 +38,4 @@ router.post('/api/sports/:sportId/athletes/:athleteId', async (req, res) => {
 router.delete('/api/sports/:sportId/athletes/:athleteId', async (req, res) => {
 	sportController.removeAthlete(req, res);
 });
-
-
 module.exports = router;
-

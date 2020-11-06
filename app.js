@@ -23,14 +23,13 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // on indique à notre app d'utiliser nos routers
-/* app.use('/', athleteRouter);
-app.use('/', sportRouter); */
+app.use('/', athleteRouter);
+app.use('/', sportRouter);
 
 // notre première route !
 // on envoi un Hello World si la requête est sur la racine.
 app.get('/', (req, res) => {
-	res.render('index_sport', { name: 'Jeux olympiques' });
-	/* res.redirect('/athletes'); */
+	res.redirect('/sports');
 });
 
 // on écoute sur notre port.
