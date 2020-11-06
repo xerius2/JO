@@ -4,6 +4,7 @@ const SportService = require('../services/sport.service');
 
 
 class AthleteController {
+
     constructor() {
         // on créé une nouvelle instance de AthleteService que l'on ajoute à notre attribut
         this.athleteService = new AthleteService();
@@ -17,6 +18,7 @@ class AthleteController {
             athletes: athletes,
         })
     }
+
     async create(req, res) {
         const athlete = req.body;
         const created = await this.athleteService.create(athlete, res);
@@ -30,7 +32,6 @@ class AthleteController {
 
         res.json(json);
     }
-
 
     async delete(req, res) {
         const athleteId = req.params.athleteId;
