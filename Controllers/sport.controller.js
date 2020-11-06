@@ -9,7 +9,7 @@ class SportController {
 
 	async list(req, res) {
 		const sports = await this.sportService.list(req, res);
-        res.render('indexSport', { sports });
+        res.render('sport', { sports });
 	}
 
 	async create(req, res) {
