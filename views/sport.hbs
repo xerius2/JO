@@ -1,5 +1,5 @@
 <div>
-    <h3 class="center header">Liste des sports olympiques</h3>
+    <h3 class="center header">Liste des sports olympiques <a class="btn btn-primary" href="/athletes">Liste des athlètes</a></h3>
     <table class="table">
         <thead>
             <tr>
@@ -13,8 +13,8 @@
                     <p>{{name}}({{count}})</p>
                 </td>
                 <td>
-                    <a href="/sport/{{id}}">Modifier</a>
-                    <a href="/sport/delete/{{id}}">Supprimer</a>
+                    <a class="btn btn-info" href="/sport/{{id}}">Modifier</a>
+                    <a class="btn btn-info" href="/sport/delete/{{id}}">Supprimer</a>
                 </td>
             </tr>
             {{/each}}
@@ -23,7 +23,7 @@
                 <tr>
                     <td>
                         <input type="text" name="name" placeholder="Ajouter un sport" />
-                        <button type="submit" class="btn btn-primary">Valider</button>
+                        <button type="submit" class="btn btn-success">Valider</button>
                     </td>
                     <td>
                     </td>
@@ -46,7 +46,7 @@
                             <option value="{{id}}">{{name}} </option>
                         {{/each}}
                     </select>
-                        <button type="submit" class="btn btn-primary">Valider</button>
+                        <button type="submit" class="btn btn-success">Valider</button>
                 </form>
             </div>
 </div>

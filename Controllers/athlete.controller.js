@@ -9,6 +9,7 @@ class AthleteController {
 		// on créé une nouvelle instance de AthleteService que l'on ajoute à notre attribut
 		this.athleteService = new AthleteService();
 		this.countryService = new CountryService();
+		this.sportService = new SportService();
 	}
 
 	async list(req, res) {
@@ -31,7 +32,18 @@ class AthleteController {
 		const athleteId = req.params.athleteId;
 		const athlete = await this.athleteService.get(athleteId, res);
 		const countries = await this.countryService.list();
-		res.render('athleteEdit', {athlete, countries})
+		const getSport = await this.sportService.list();
+
+		let sports = [];
+		for(const sport of getSport){
+			for (const element of sport.athletes) {
+				if(athleteId == element){
+					sports.push(sport);
+				}
+			}
+		}
+		console.log(sports);
+		res.render('athleteEdit', {athlete, countries, sports})
 	}
 
 	async delete(req, res) {
@@ -53,6 +65,7 @@ class AthleteController {
 			return
 		}
 		await this.athleteService.update(athleteId, req, res);
+		res.redirect('/athletes');
 	}
 
 	async getSports(req, res) {
