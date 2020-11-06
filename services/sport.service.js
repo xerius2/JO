@@ -1,5 +1,5 @@
 const Sport = require('../models/sport');
-
+const Athlete = require('../models/athlete');
 // Une class SportService
 class SportService {
     constructor() { }
@@ -71,13 +71,24 @@ class SportService {
     }
 
     async addAthlete(sportId, athleteId, res){
-        const sport = await AthleteController.findById(sportId);
-
-        sport.athletes = [sport.athletes,athleteId];
+        const sport = await Sport.findById(sportId);
+        var bool = false;
+        sport.athletes.forEach(element => {
+            if(element == athleteId){
+                bool = true;
+            }
+        });
+        if(!bool){
+            sport.athletes.push(athleteId);
+        }
+        else{
+            console.log('l\'athlète fait déjà parti de ce sport')
+            res.status(201).json('l\'athlète fait déjà parti de ce sport');
+        }
 
         try {
             await sport.save();
-            res.status(201).json(sport);
+            return true;
         } catch (error) {
             console.log('Error during athlete add', err)
             res.status(500).end();
@@ -85,17 +96,18 @@ class SportService {
     }
 
     async removeAthlete(sportId, athleteId, res){
-        const sport = await AthleteController.findById(sportId);
+        const sport = await Sport.findById(sportId);
 
         sport.athletes.forEach(element => {
             if(element == athleteId){
-                delete sport.athletes.element
+                console.log('test');
+                console.log(sport.athletes[sport.athletes.indexOf(element)]);
+                sport.athletes.splice([sport.athletes.indexOf(element)], 1);
             }
         });
-
         try {
             await sport.save();
-            res.status(201).json(sport);
+            return sport
         } catch (error) {
             console.log('Error during athlete remove', err)
             res.status(500).end();

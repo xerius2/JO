@@ -1,15 +1,18 @@
 const SportService = require('../services/sport.service');
+const AthleteService = require('../services/athlete.service');
 
 class SportController {
 
 	constructor() {
 		// on créé une nouvelle instance de SportService que l'on ajoute à notre attribut
 		this.sportService = new SportService();
+		this.athleteService = new AthleteService();
 	}
 
 	async list(req, res) {
 		const sports = await this.sportService.list(req, res);
-        res.render('sport', { sports, authorized : true});
+		const athletes = await this.athleteService.list(req, res);
+        res.render('sport', { sports,athletes, authorized : true});
 	}
 
 	async create(req, res) {
@@ -21,15 +24,22 @@ class SportController {
 	async get(req, res) {
 		const sportId = req.params.sportId;
 		const getSport = await this.sportService.get(sportId, res);
+		let athletes = [];
 
-        res.render('sportEdit', { sport: getSport});
+		for (const element of getSport.athletes) {
+			const ath = await this.athleteService.get(element, '');
+			if(ath !== null){
+				athletes.push(ath);
+			}
+		  }
+        res.render('sportEdit', { sport: getSport, athletes:athletes});
 	}
 
 	async delete(req, res) {
 		const sportId = req.params.sportId;
 		const getSport = await this.sportService.delete(sportId, res);
 
-		res.send(getSport);
+		res.redirect('/sports');
 	}
 
 	async update(req, res) {
@@ -49,10 +59,11 @@ class SportController {
 	}
 
 	async addAthlete(req, res) {
-		const sportId = req.params.sportId;
-		const athleteId = req.params.athleteId;
+		const sportId = req.body.sportId;
+		const athleteId = req.body.athleteId;
 
 		const sport = await this.sportService.addAthlete(sportId, athleteId, res)
+		res.redirect('/sports');
 	}
 
 	async removeAthlete(req, res) {
@@ -60,6 +71,7 @@ class SportController {
 		const athleteId = req.params.athleteId;
 
 		const sport = await this.sportService.removeAthlete(sportId, athleteId, res)
+		res.redirect('/sports');
 	}
 }
 // on n'oublie pas d'exporter notre Controller

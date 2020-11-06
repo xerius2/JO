@@ -1,8 +1,12 @@
 <div class="container">
-    <h1>Modifier le sport</h1>
+    <h1>Modifier le sport <button onclick="window.history.back()">Retour</button></h1>
         <form method="post" action="/sport/{{sport.id}}">
             <input type="text" name="name" placeholder="Ajouter un sport" value="{{sport.name}}" />
-            <p>{{sport.athletes}}</p>
-            <button type="submit" class="btn btn-primary">Valider</button>     
+            <button type="submit" class="btn btn-primary">Valider</button>  
+            
         </form>
+        <h2>Voici les athlètes de ce sport</h2> 
+            {{#each athletes}}
+                <p>{{gender}} : {{firstName}} {{lastName}}, <a href="/sports/{{../sport.id}}/athletes/{{id}}">Supprimer l'athlètes</a></p>
+            {{/each}}  
 </div>
