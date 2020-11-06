@@ -2,30 +2,39 @@ const express = require('express');
 const router = express.Router();
 
 const AthleteController = require('../Controllers/athlete.controller');
-// on créé une nouvelle instance de notre controller !
 const athleteController = new AthleteController();
 
-router.get('/api/athletes', async (req, res) => {
+//Récupèrer la liste des athlètes.
+router.get('/athletes', async (req, res) => {
 	athleteController.list(req, res);
 });
 
-router.get('/api/athletes/:athleteId', async (req, res) => { // consulter l'athlete et ses sports
+//Consulter un athlète en particulier.
+router.get('/athletes/:athleteId', async (req, res) => {
 	athleteController.get(req, res);
 });
 
-router.post('/api/athletes/:athleteId', async (req, res) => { // changer les infos de l'athlete
-	athleteController.update(req, res);
-});
-
-router.post('/api/athletes', async (req, res) => {
-	athleteController.create(req, res);
-});
-
-router.delete('/api/athletes/:athleteId', async (req, res) => {
-	athleteController.delete(req, res);
-});
-
-router.get('/api/athletes/:athleteId/sports', async (req, res) => {
+//Récupérer la liste des sports auquel un athlète est rattaché.
+router.get('/athletes/:athleteId/sports', async (req, res) => {
 	athleteController.getSports(req, res);
 });
+
+//Mettre à jour un athlète.
+router.post('/athletes/:athleteId', async (req, res) => {
+	athleteController.update(req, res);
+	res.redirect('/athletes');
+});
+
+//Créer un athlète.
+router.post('/athletes', async (req, res) => {
+	athleteController.create(req, res);
+	res.redirect('/athletes');
+});
+
+//Supprimer un athlète.
+router.delete('/athletes/:athleteId', async (req, res) => {
+	athleteController.delete(req, res);
+	res.redirect('/athletes');
+});
+
 module.exports = router;
