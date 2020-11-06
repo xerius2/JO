@@ -100,8 +100,6 @@ class SportService {
 
         sport.athletes.forEach(element => {
             if(element == athleteId){
-                console.log('test');
-                console.log(sport.athletes[sport.athletes.indexOf(element)]);
                 sport.athletes.splice([sport.athletes.indexOf(element)], 1);
             }
         });

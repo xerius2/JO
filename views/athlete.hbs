@@ -10,7 +10,7 @@
             {{#each athletes}}
             <tr>
                 <td>
-                    <p>{{politness}} {{firstName}} {{lastName}} (country)</p>
+                    <p>{{politness}} {{firstName}} {{lastName}} {{country}}</p>
                 </td>
                 <td>
                     <button>Modifier</button>
@@ -22,15 +22,15 @@
             <form method="post" action="/athletes">
                 <tr>
                     <td>
-                        <input type="text" name="firstname" placeholder="Prénom de l'athlète" />
-                        <input type="text" name="lastname" placeholder="Nom de l'athlète" />
+                        <input type="text" name="firstName" placeholder="Prénom de l'athlète" />
+                        <input type="text" name="lastName" placeholder="Nom de l'athlète" />
                         <label for="gender" name="gender" placeholder="Sexe de l'athlète"></label>
-                        <select id="gender">
-                            <option value="MALE">Homme</option>
-                            <option value="FEMALE">Femme</option>
+                        <select name="gender" id="gender">
+                            <option value="Monsieur">Homme</option>
+                            <option value="Madame">Femme</option>
                         </select>
                         <label for="countries" name="country" placeholder="Pays de l'athlète"></label>
-                        <select id="contries">
+                        <select name="country" id="contries">
                             {{#each countries}}
                             <option value="{{code}}">{{name}}</option>
                             {{/each}}
