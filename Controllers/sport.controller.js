@@ -58,6 +58,13 @@ class SportController {
 
         const sport = await this.sportService.addAthlete(sportId,athleteId,res)
     }
+
+    async removeAthlete(req,res){
+        const sportId = req.params.sportId;
+        const athleteId = req.params.athleteId;
+
+        const sport = await this.sportService.removeAthlete(sportId,athleteId,res)
+    }
 }
 // on n'oublie pas d'exporter notre Controller
 module.exports = SportController;

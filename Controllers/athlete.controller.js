@@ -1,5 +1,7 @@
 const athlete = require('../models/athlete');
 const AthleteService = require('../services/athlete.service');
+const SportService = require('../services/sport.service');
+
 
 class AthleteController {
     constructor() {
@@ -52,6 +54,12 @@ class AthleteController {
         }
         const athlete = await this.athleteService.update(athleteId,req, res);
 
+    }
+
+    async getSports(req,res){
+        const athleteId = req.params.athleteId;
+        const getAthleteSports = await this.SportService.getSports(athleteId, res);
+        
     }
 }
 // on n'oublie pas d'exporter notre Controller

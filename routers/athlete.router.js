@@ -24,5 +24,9 @@ router.post('/api/athletes/'), async (req,res) => {
 router.delete('/api/athletes/:athleteId'), async (req,res) => {
     athleteController.delete(req,res);
 }
+
+router.get('/api/athletes/:athleteId/sports'), async (req,res) => {
+    athleteController.getSports(req,res);
+}
 module.exports = router;
 

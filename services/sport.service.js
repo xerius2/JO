@@ -83,6 +83,39 @@ class SportService {
             res.status(500).end();
         }
     }
+
+    async removeAthlete(sportId, athleteId, res){
+        const sport = await AthleteController.findById(sportId);
+
+        sport.athletes.forEach(element => {
+            if(element == athleteId){
+                delete sport.athletes.element
+            }
+        });
+
+        try {
+            await sport.save();
+            res.status(201).json(sport);
+        } catch (error) {
+            console.log('Error during athlete remove', err)
+            res.status(500).end();
+        }
+    }
+
+    async getSports(athleteId, res){
+
+        const sports = await Sport.find();
+        let arraySport;
+        sports.forEach(sport => {
+            sport.athletes.forEach(idAthlete => {
+                if(athleteId == idAthlete){
+                    arraySport.push(sport)
+                }
+            });
+        });
+        return arraySport;
+
+    }
 }
 
 // on n'oublie pas d'exporter notre Service

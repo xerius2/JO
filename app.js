@@ -15,6 +15,7 @@ const port = 3000;
 connect();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.set('view engine', 'hbs');
 // on indique que nos vues se trouverons toujours dans le dossier views 
@@ -23,3 +24,14 @@ app.set('views', path.join(__dirname, 'views'));
 // on indique à notre app d'utiliser nos routers
 app.use('/', athleteRouter);
 app.use('/', sportRouter);
+
+// notre première route !
+// on envoi un Hello World si la requête est sur la racine.
+app.get('/', (req, res) => {
+    res.render('index', { name: 'Jeux olympiques' });
+});
+
+// on écoute sur notre port.
+app.listen(port, () => {
+    console.log(`TweetJS listening at http://localhost:${port}`)
+});
