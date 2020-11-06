@@ -2,7 +2,7 @@ const Country = require('../models/country');
 
 class CountryService {
 
-	async list(req, res) {
+	async list() {
 		return Country;
 	}
 }

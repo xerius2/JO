@@ -19,7 +19,7 @@
             </tr>
             {{/each}}
             {{#if authorized}}
-            <form method="post" action="/sports">
+            <form method="post" action="/athletes">
                 <tr>
                     <td>
                         <input type="text" name="firstname" placeholder="Prénom de l'athlète" />
@@ -29,7 +29,7 @@
                             <option value="MALE">Homme</option>
                             <option value="FEMALE">Femme</option>
                         </select>
-                        <label for="countries" name="country" placeholder="Pays"></label>
+                        <label for="countries" name="country" placeholder="Pays de l'athlète"></label>
                         <select id="contries">
                             {{#each countries}}
                             <option value="{{code}}">{{name}}</option>
@@ -39,7 +39,6 @@
                     <td>
                         <button type="submit" class="btn btn-primary">Créer</button>
                     </td>
-
                 </tr>
             </form>
             {{/if}}

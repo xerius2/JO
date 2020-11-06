@@ -12,8 +12,8 @@ class AthleteController {
 	}
 
 	async list(req, res) {
-		const athletes = await this.athleteService.list(req, res);
-		const countries = await this.countryService.list(req, res);
+		const athletes = await this.athleteService.list();
+		const countries = await this.countryService.list();
 		res.render('athlete', {
 			count: athletes.length,
 			athletes,
