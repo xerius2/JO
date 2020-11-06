@@ -2,8 +2,6 @@
 const express = require('express');
 const path = require('path');
 const connect = require('./database/mongodb');
-
-// on récupère nos routers
 const athleteRouter = require('./routers/athlete.router');
 const sportRouter = require('./routers/sport.router');
 
@@ -28,8 +26,8 @@ app.use('/', sportRouter);
 // notre première route !
 // on envoi un Hello World si la requête est sur la racine.
 app.get('/', (req, res) => {
-	//res.render('index', { name: 'Jeux olympiques' });
-	res.redirect('/athletes');
+	res.render('index_sport', { name: 'Jeux olympiques' });
+	/* res.redirect('/athletes'); */
 });
 
 // on écoute sur notre port.

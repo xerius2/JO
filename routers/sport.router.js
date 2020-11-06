@@ -5,7 +5,7 @@ const SportController = require('../controllers/sport.controller');
 // on créé une nouvelle instance de notre controller !
 const sportController = new SportController();
 
-router.get('/api/sports/'), async (req, res) => {
+router.get('/api/sports'), async (req, res) => {
 	sportController.list(req, res);
 }
 
@@ -33,7 +33,7 @@ router.delete('/api/sports/:sportId/athletes/:athleteId'), async (req, res) => {
 	sportController.removeAthlete(req, res);
 }
 
-router.get('/sports/'), (req, res) => {
+router.get('/sports'), (req, res) => {
 	sportController.list(req, res)
 }
 
