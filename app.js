@@ -5,6 +5,7 @@ const logger = require('morgan');
 const connect = require('./database/mongodb');
 const athleteRouter = require('./routers/athlete.router');
 const sportRouter = require('./routers/sport.router');
+const handlebars = require('hbs');
 
 // on construit notre application qui nous servira à créer nos routes
 const app = express();
@@ -18,6 +19,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.set('view engine', 'hbs');
+
+handlebars.registerHelper('Equals', function (arg1, arg2, options) {
+	return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+
 // on indique que nos vues se trouverons toujours dans le dossier views 
 app.set('views', path.join(__dirname, 'views'));
 
