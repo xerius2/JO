@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>Modifier le sport</h1>
+        <form method="post" action="/sport/{{sport.id}}">
+            <input type="text" name="name" placeholder="Ajouter un sport" value="{{sport.name}}" />
+            <p>{{sport.athletes}}</p>
+            <button type="submit" class="btn btn-primary">Valider</button>     
+        </form>
+</div>

@@ -16,7 +16,7 @@ class SportService {
 
         try {
             await newSport.save();
-            res.status(201).json(newSport);
+            return sport;
         } catch (error) {
             console.log('Error durng sport creation', err)
             res.status(500).end();
@@ -53,7 +53,7 @@ class SportService {
     }
 
     async update(sportId,req, res){
-        const sport = await AthleteController.findById(sportId);
+        const sport = await Sport.findById(sportId);
         if(!sport){
             console.error('Sport not found');
             res.status(404).end();
@@ -63,7 +63,7 @@ class SportService {
 
         try {
             await sport.save();
-            res.status(201).json(sport);
+            return sport;
         } catch (error) {
             console.log('Error during sport update', err)
             res.status(500).end();

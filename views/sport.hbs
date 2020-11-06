@@ -13,20 +13,22 @@
                     <p>{{name}}({{count}})</p>
                 </td>
                 <td>
-                    <button>Modifier</button>
-                    <button>Supprimer</button>
+                    <a href="/sport/{{id}}">Modifier</a>
+                    <a href="/sport/delete/{{id}}">Supprimer</a>
                 </td>
             </tr>
             {{/each}}
             {{#if authorized}}
-            <tr>
-                <td>
-                    <input placeholder="Ajouter un sport" />
-                </td>
-                <td>
-                    <button>Créer</button>
-                </td>
-            </tr>
+            <form method="post" action="/sports">
+                <tr>
+                    <td>
+                        <input type="text" name="name" placeholder="Ajouter un sport" />
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary">Valider</button>
+                    </td>
+                </tr>
+            </form>
             {{/if}}
         </tbody>
     </table>
