@@ -30,9 +30,8 @@ class AthleteController {
 	async get(req, res) {
 		const athleteId = req.params.athleteId;
 		const athlete = await this.athleteService.get(athleteId, res);
-		res.render('athlete', {
-			athlete
-		})
+		const countries = await this.countryService.list();
+		res.render('athleteEdit', {athlete, countries})
 	}
 
 	async delete(req, res) {

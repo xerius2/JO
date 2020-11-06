@@ -26,13 +26,13 @@ router.post('/athletes/:athleteId', async (req, res) => {
 });
 
 //Créer un athlète.
-router.post('/athletes', async (req, res) => {
+router.post('/athletes/:athleteId', async (req, res) => {
 	athleteController.create(req, res);
 	res.redirect('/athletes');
 });
 
 //Supprimer un athlète.
-router.delete('/athletes/:athleteId', async (req, res) => {
+router.get('/athletes/delete/:athleteId', async (req, res) => {
 	athleteController.delete(req, res);
 	res.redirect('/athletes');
 });
