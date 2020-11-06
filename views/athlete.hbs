@@ -7,7 +7,7 @@
             </tr>
         </thead>
         <tbody>
-            {{#each athlete}}
+            {{#each athletes}}
             <tr>
                 <td>
                     <p>{{politness}} {{firstName}} {{lastName}} (country)</p>
@@ -19,14 +19,28 @@
             </tr>
             {{/each}}
             {{#if authorized}}
-            <tr>
-                <td>
-                    <input placeholder="Ajouter un athlète" />
-                </td>
-                <td>
-                    <button>Créer</button>
-                </td>
-            </tr>
+            <form method="post" action="/athletes">
+                <tr>
+                    <td>
+                        <input type="text" name="firstname" placeholder="Prénom de l'athlète" />
+                        <input type="text" name="lastname" placeholder="Nom de l'athlète" />
+                        <label for="gender" name="gender" placeholder="Sexe de l'athlète"></label>
+                        <select id="gender">
+                            <option value="MALE">Homme</option>
+                            <option value="FEMALE">Femme</option>
+                        </select>
+                        <label for="countries" name="country" placeholder="Pays de l'athlète"></label>
+                        <select id="contries">
+                            {{#each countries}}
+                            <option value="{{code}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary">Créer</button>
+                    </td>
+                </tr>
+            </form>
             {{/if}}
         </tbody>
     </table>

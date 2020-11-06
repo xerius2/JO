@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\controllers",
+    "\\models",
+    "\\routers",
+    "\\services",
+    "\\views"
   ],
-  "SelectedNode": "\\mongodb.js",
+  "SelectedNode": "\\routers\\sport.router.js",
   "PreviewInSolutionExplorer": false
 }
