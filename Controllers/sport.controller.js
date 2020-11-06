@@ -9,21 +9,20 @@ class SportController {
 
 	async list(req, res) {
 		const sports = await this.sportService.list(req, res);
-        res.render('sport', { sports });
+        res.render('sport', { sports, authorized : true});
 	}
 
 	async create(req, res) {
 		const sport = req.body;
 		const created = await this.sportService.create(sport, res);
-		res.send(created);
+		res.redirect('/sports');
 	}
 
 	async get(req, res) {
 		const sportId = req.params.sportId;
-
 		const getSport = await this.sportService.get(sportId, res);
 
-		res.json(json);
+        res.render('sportEdit', { sport: getSport});
 	}
 
 	async delete(req, res) {
@@ -46,6 +45,7 @@ class SportController {
 			return
 		}
 		const athlete = await this.sportService.update(sportId, req, res);
+		res.redirect('/sports');
 	}
 
 	async addAthlete(req, res) {
