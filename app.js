@@ -29,7 +29,6 @@ app.use('/', sportRouter);
 // notre première route !
 // on envoi un Hello World si la requête est sur la racine.
 app.get('/', (req, res) => {
-	/* res.render('index_sport', { name: 'Jeux olympiques' }); */
 	res.redirect('/sports');
 });
 
