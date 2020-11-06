@@ -4,8 +4,16 @@
         <input type="text" name="firstName" placeholder="" value="{{athlete.firstName}}" />
         <input type="text" name="lastName" placeholder="" value="{{athlete.lastName}}" /> </br>
         <select name="gender" id="gender" value="{{athlete.gender}}">
+            {{#Equals athlete.gender "Monsieur"}}
+            <option selected value="Monsieur">Homme</option>
+            {{else}}
             <option value="Monsieur">Homme</option>
+            {{/Equals}}
+            {{#Equals athlete.gender "Madame"}}
+            <option selected value="Madame">Femme</option>
+            {{else}}
             <option value="Madame">Femme</option>
+            {{/Equals}}
         </select>
         <select name="country" id="contries" value="{{athlete.country}}">
             {{#each countries}}
@@ -17,7 +25,6 @@
             {{/each}}
         </select>
         <button type="submit" class="btn btn-primary">Valider</button>
-
     </form>
     <h2>Voici les sports de cet athlète</h2>
     {{#each sports}}
