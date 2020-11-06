@@ -1,9 +1,9 @@
 <div>
-    <h3 class="center header">Liste des athlètes olympiques</h3>
+    <h3 class="center header">Liste des athlÃ¨tes olympiques</h3>
     <table class="table">
         <thead>
             <tr>
-                <th>Nom de l'athlète</th>
+                <th>Nom de l'athlÃ¨te</th>
             </tr>
         </thead>
         <tbody>
@@ -22,14 +22,14 @@
             <form method="post" action="/athletes">
                 <tr>
                     <td>
-                        <input type="text" name="firstname" placeholder="Prénom de l'athlète" />
-                        <input type="text" name="lastname" placeholder="Nom de l'athlète" />
-                        <label for="gender" name="gender" placeholder="Sexe de l'athlète"></label>
+                        <input type="text" name="firstname" placeholder="PrÃ©nom de l'athlÃ¨te" />
+                        <input type="text" name="lastname" placeholder="Nom de l'athlÃ¨te" />
+                        <label for="gender" name="gender" placeholder="Sexe de l'athlÃ¨te"></label>
                         <select id="gender">
                             <option value="MALE">Homme</option>
                             <option value="FEMALE">Femme</option>
                         </select>
-                        <label for="countries" name="country" placeholder="Pays de l'athlète"></label>
+                        <label for="countries" name="country" placeholder="Pays de l'athlÃ¨te"></label>
                         <select id="contries">
                             {{#each countries}}
                             <option value="{{code}}">{{name}}</option>
@@ -37,7 +37,7 @@
                         </select>
                     </td>
                     <td>
-                        <button type="submit" class="btn btn-primary">Créer</button>
+                        <button type="submit" class="btn btn-primary">CrÃ©er</button>
                     </td>
                 </tr>
             </form>

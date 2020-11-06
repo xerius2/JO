@@ -23,14 +23,18 @@
                 <tr>
                     <td>
                         <input type="text" name="name" placeholder="Ajouter un sport" />
+                        <button type="submit" class="btn btn-primary">Valider</button>
                     </td>
                     <td>
-                        <button type="submit" class="btn btn-primary">Valider</button>
                     </td>
                 </tr>
             </form>
             {{/if}}
+        </tbody>
+    </table>
+
             <div>
+                <h2>Ajouter un athlète à un sport</h2>
                 <form method="POST" action="/sports/athletes/add">
                     <select name="athleteId" id="">
                         {{#each athletes}}
@@ -45,6 +49,4 @@
                         <button type="submit" class="btn btn-primary">Valider</button>
                 </form>
             </div>
-        </tbody>
-    </table>
 </div>
