@@ -6,12 +6,11 @@ class SportController {
 	constructor() {
 		// on créé une nouvelle instance de SportService que l'on ajoute à notre attribut
 		this.sportService = new SportService();
-		console.log('zozo');
 	}
 
 	async list(req, res) {
 		const sports = await this.sportService.list(req, res);
-
+		console.log('aze');
         res.render('index_sports', { sports });
 	}
 
