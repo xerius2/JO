@@ -33,7 +33,7 @@ router.delete('/api/sports/:sportId/athletes/:athleteId'), async (req, res) => {
 	sportController.removeAthlete(req, res);
 }
 
-router.get('/sports/'), (req, res) => {
+router.get('/sports'), (req, res) => {
 	sportController.list(req, res)
 }
 
