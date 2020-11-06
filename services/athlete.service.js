@@ -10,7 +10,6 @@ class AthleteService {
 			res.status(400).end();
 			return;
 		}
-		console.log(athlete);
 		const newAthlete = new Athlete({
 			firstName: athlete.firstName,
 			lastName: athlete.lastName,

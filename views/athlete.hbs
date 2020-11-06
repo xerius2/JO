@@ -24,13 +24,13 @@
                     <td>
                         <input type="text" name="firstname" placeholder="Prénom de l'athlète" />
                         <input type="text" name="lastname" placeholder="Nom de l'athlète" />
-                        <label for="gender" name="gender" placeholder="Sexe de l'athlète"></label>
-                        <select id="gender">
+                        <label for="gender" placeholder="Sexe de l'athlète"></label>
+                        <select id="gender" name="gender">
                             <option value="MALE">Homme</option>
                             <option value="FEMALE">Femme</option>
                         </select>
-                        <label for="countries" name="country" placeholder="Pays de l'athlète"></label>
-                        <select id="contries">
+                        <label for="countries" placeholder="Pays de l'athlète"></label>
+                        <select id="contries" name="country">
                             {{#each countries}}
                             <option value="{{code}}">{{name}}</option>
                             {{/each}}
