@@ -30,6 +30,21 @@
                 </tr>
             </form>
             {{/if}}
+            <div>
+                <form method="POST" action="/sports/athletes/add">
+                    <select name="athleteId" id="">
+                        {{#each athletes}}
+                            <option value="{{id}}">{{firstName}} {{lastName}}</option>
+                        {{/each}}
+                    </select>
+                    <select name="sportId" id="">
+                        {{#each sports}}
+                            <option value="{{id}}">{{name}} </option>
+                        {{/each}}
+                    </select>
+                        <button type="submit" class="btn btn-primary">Valider</button>
+                </form>
+            </div>
         </tbody>
     </table>
 </div>

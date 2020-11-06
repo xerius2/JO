@@ -31,8 +31,7 @@ class AthleteService {
 
         if(!athlete){
             console.error('Athlete not found')
-            res.status('404').end();
-            return;
+            return null;
         }
         return athlete;
     }

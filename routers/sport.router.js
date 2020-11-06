@@ -22,15 +22,15 @@ router.post('/sports', async (req, res) => {
 	sportController.create(req, res);
 });
 
-router.delete('/sport/delete/:sportId', async (req, res) => {
+router.get('/sport/delete/:sportId', async (req, res) => {
 	sportController.delete(req, res);
 });
 
-router.post('/api/sports/:sportId/athletes/:athleteId', async (req, res) => {
+router.post('/sports/athletes/add', async (req, res) => {
 	sportController.addAthlete(req, res);
 });
 
-router.delete('/api/sports/:sportId/athletes/:athleteId', async (req, res) => {
+router.get('/sports/:sportId/athletes/:athleteId', async (req, res) => {
 	sportController.removeAthlete(req, res);
 });
 module.exports = router;
