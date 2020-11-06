@@ -1,21 +1,24 @@
 const athlete = require('../models/athlete');
 const AthleteService = require('../services/athlete.service');
+const CountryService = require('../services/country.service');
 const SportService = require('../services/sport.service');
-
 
 class AthleteController {
 
 	constructor() {
 		// on créé une nouvelle instance de AthleteService que l'on ajoute à notre attribut
 		this.athleteService = new AthleteService();
+		this.countryService = new CountryService();
 	}
 
 	async list(req, res) {
 		const athletes = await this.athleteService.list(req, res);
+		const countries = await this.countryService.list(req, res);
 		res.render('athlete', {
 			count: athletes.length,
 			athletes,
-			authorized: true
+			authorized: true,
+			countries
 		});
 	}
 
