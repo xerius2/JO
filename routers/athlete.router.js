@@ -20,13 +20,12 @@ router.get('/athletes/:athleteId/sports', async (req, res) => {
 });
 
 //Mettre à jour un athlète.
-router.post('/athletes/:athleteId', async (req, res) => {
+router.post('/athlete/:athleteId', async (req, res) => {
 	athleteController.update(req, res);
-	res.redirect('/athletes');
 });
 
 //Créer un athlète.
-router.post('/athletes/:athleteId', async (req, res) => {
+router.post('/athletes', async (req, res) => {
 	athleteController.create(req, res);
 	res.redirect('/athletes');
 });

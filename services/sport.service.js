@@ -5,7 +5,7 @@ class SportService {
     constructor() { }
 
     async create(sport, res) {
-        if(!sport){
+        if(!sport.name){
             console.log('filed name expected')
             res.status(400).end();
             return;
@@ -34,7 +34,7 @@ class SportService {
         return sport;
     }
 
-    async list(req, res){
+    async list(){
         const sports = await Sport.find();
         return sports;
     }

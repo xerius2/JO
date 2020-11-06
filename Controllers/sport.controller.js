@@ -10,12 +10,13 @@ class SportController {
 	}
 
 	async list(req, res) {
-		const sports = await this.sportService.list(req, res);
+		const sports = await this.sportService.list();
 		const athletes = await this.athleteService.list(req, res);
         res.render('sport', { sports,athletes, authorized : true});
 	}
 
 	async create(req, res) {
+
 		const sport = req.body;
 		const created = await this.sportService.create(sport, res);
 		res.redirect('/sports');

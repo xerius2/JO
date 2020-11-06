@@ -5,7 +5,7 @@ class AthleteService {
 	constructor() { }
 
 	async create(athlete, res) {
-		if (!athlete) {
+		if (!athlete.firstName || !athlete.lastName || !athlete.gender || !athlete.country ) {
 			console.log('filed name expected')
 			res.status(400).end();
 			return;
@@ -52,7 +52,7 @@ class AthleteService {
 	}
 
 	async update(athleteId, req, res) {
-		const athlete = await AthleteController.findById(athleteId);
+		const athlete = await Athlete.findById(athleteId);
 		if (!athlete) {
 			console.error('Athlete not found');
 			res.sattus(404).end();
@@ -64,6 +64,7 @@ class AthleteService {
 		athlete.country = req.body.country;
 		try {
 			await athlete.save();
+            return athlete;
 		} catch (error) {
 			console.log('Error durng athlete update', error)
 			res.status(500).end();

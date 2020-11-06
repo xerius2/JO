@@ -1,20 +1,20 @@
 <div>
-    <h3 class="center header">Liste des athlètes olympiques</h3>
+    <h3 class="center header">Liste des athlètes olympiques <a class="btn btn-primary" href="/sports">Liste des sports</a></h3>
     <table class="table">
         <thead>
             <tr>
-                <th>Nom de l'athlète</th>
-            </tr>
+                <th>Genre : Nom de l'athlète | Code iso du pays</th>
+            </tr
         </thead>
         <tbody>
             {{#each athletes}}
             <tr>
                 <td>
-                    <p>{{politness}} {{firstName}} {{lastName}} {{country}}</p>
+                    <p>{{gender}} : {{firstName}} {{lastName}} | {{country}}</p>
                 </td>
                 <td>
-                    <a href="/athletes/{{id}}">Modifier</a>
-                    <a href="/athletes/delete/{{id}}">Supprimer</a>
+                    <a class="btn btn-info" href="/athletes/{{id}}">Modifier</a>
+                    <a class="btn btn-info" href="/athletes/delete/{{id}}">Supprimer</a>
                 </td>
             </tr>
             {{/each}}
@@ -37,7 +37,7 @@
                         </select>
                     </td>
                     <td>
-                        <button type="submit" class="btn btn-primary">Créer</button>
+                        <button  type="submit" class="btn btn-success">Créer</button>
                     </td>
                 </tr>
             </form>
