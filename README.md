@@ -11,16 +11,15 @@ Les dépendances du projet sont :
 - "uuid": "^8.3.1"
 
 Fonctionnalités (API + fonctionnalités WEB) :
-OK :
-- Créer un sport
-- Lister les athlètes
-- Consulter les athlètes d'un sport
-- Ajouter un athlète dans un sport
-- Créer un athlète
-- Lister les athlètes
-- Consulter les sports d'un athlète
+- OK :
+	- Créer un sport
+	- Lister les athlètes
+	- Consulter les athlètes d'un sport
+	- Ajouter un athlète dans un sport
+	- Créer un athlète
+	- Lister les athlètes
+	- Consulter les sports d'un athlète
 
-	Option :
-	- Concevoir et développer des pages pour modifier les sports et les athlètes.
+	Option : Concevoir et développer des pages pour modifier les sports et les athlètes.
 
 KO :
