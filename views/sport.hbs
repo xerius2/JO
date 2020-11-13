@@ -1,0 +1,52 @@
+<div>
+    <h3 class="center header">Liste des sports olympiques <a class="btn btn-primary" href="/athletes">Liste des athlètes</a></h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sport</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each sports}}
+            <tr>
+                <td>
+                    <p>{{name}}({{count}})</p>
+                </td>
+                <td>
+                    <a class="btn btn-info" href="/sport/{{id}}">Modifier</a>
+                    <a class="btn btn-info" href="/sport/delete/{{id}}">Supprimer</a>
+                </td>
+            </tr>
+            {{/each}}
+            {{#if authorized}}
+            <form method="post" action="/sports">
+                <tr>
+                    <td>
+                        <input type="text" name="name" placeholder="Ajouter un sport" />
+                        <button type="submit" class="btn btn-success">Valider</button>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </form>
+            {{/if}}
+        </tbody>
+    </table>
+
+            <div>
+                <h2>Ajouter un athlète à un sport</h2>
+                <form method="POST" action="/sports/athletes/add">
+                    <select name="athleteId" id="">
+                        {{#each athletes}}
+                            <option value="{{id}}">{{firstName}} {{lastName}}</option>
+                        {{/each}}
+                    </select>
+                    <select name="sportId" id="">
+                        {{#each sports}}
+                            <option value="{{id}}">{{name}} </option>
+                        {{/each}}
+                    </select>
+                        <button type="submit" class="btn btn-success">Valider</button>
+                </form>
+            </div>
+</div>
