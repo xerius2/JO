@@ -1,27 +1,26 @@
-# JO
+# Jeux Olympiques
 
-Récupération des sources => git clone https://github.com/xerius2/JO.git
+RÃ©cupÃ©ration des sources => git clone https://github.com/xerius2/JO.git
 
-Les dépendances du projet sont : 
-"axios": "^0.21.0"
-"express": "^4.17.1"
-"hbs": "^4.1.1"
-"mongoose": "^5.10.12"
-"morgan": "^1.10.0"
-"uuid": "^8.3.1"
+Les dÃ©pendances du projet sont : 
+- "axios": "^0.21.0"
+- "express": "^4.17.1"
+- "hbs": "^4.1.1"
+- "mongoose": "^5.10.12"
+- "morgan": "^1.10.0"
+- "uuid": "^8.3.1"
 
-Fonctionnalités (API + fonctionnalités WEB) :
-	OK :
-- Créer un sport
-- Lister les athlètes
-- Consulter les athlètes d'un sport
-- Ajouter un athlète dans un sport
+FonctionnalitÃ©s (API + fonctionnalitÃ©s WEB) :
+OK :
+- CrÃ©er un sport
+- Lister les athlÃ¨tes
+- Consulter les athlÃ¨tes d'un sport
+- Ajouter un athlÃ¨te dans un sport
+- CrÃ©er un athlÃ¨te
+- Lister les athlÃ¨tes
+- Consulter les sports d'un athlÃ¨te
 
-- Créer un athlète
-- Lister les athlètes
-- Consulter les sports d'un athlète
-
-		Option :
-		- Concevoir et développer des pages pour modifier les sports et les athlètes.
+	Option :
+	- Concevoir et dÃ©velopper des pages pour modifier les sports et les athlÃ¨tes.
 
 KO :
